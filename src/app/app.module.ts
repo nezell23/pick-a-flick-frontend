@@ -14,6 +14,7 @@ import { AddAFlickComponent } from './components/add-a-flick/add-a-flick.compone
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { EditTagsComponent } from './components/edit-tags/edit-tags.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     AddAFlickComponent,
     PickAFlickComponent,
     SearchResultsUserDbComponent,
-    NavBarComponent
+    NavBarComponent,
+    EditTagsComponent
   ],
   imports: [
     BrowserModule,

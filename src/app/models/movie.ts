@@ -1,7 +1,8 @@
 export class Movie {
     movieId: number;
+    authorId: number;
     imageUrl: string;
-    title: string;
+    movieTitle: string;
     year: number;
     runTimeInMinutes: number;
     genre: string;
