@@ -13,6 +13,7 @@ import { TagsComponent } from './components/tags/tags.component';
 import { AddAFlickComponent } from './components/add-a-flick/add-a-flick.component';
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchResultsUserDbComponent } from './components/search-results-user-d
     TagsComponent,
     AddAFlickComponent,
     PickAFlickComponent,
-    SearchResultsUserDbComponent
+    SearchResultsUserDbComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
