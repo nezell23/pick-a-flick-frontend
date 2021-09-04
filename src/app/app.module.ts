@@ -12,7 +12,7 @@ import { EditFlickComponent } from './components/edit-flick/edit-flick.component
 import { TagsComponent } from './components/tags/tags.component';
 import { AddAFlickComponent } from './components/add-a-flick/add-a-flick.component';
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
-import { SearchUserDbComponent } from './components/search-user-db/search-user-db.component';
+import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SearchUserDbComponent } from './components/search-user-db/search-user-d
     TagsComponent,
     AddAFlickComponent,
     PickAFlickComponent,
-    SearchUserDbComponent
+    SearchResultsUserDbComponent
   ],
   imports: [
     BrowserModule,
