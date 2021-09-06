@@ -13,14 +13,14 @@ import { ViewFlickComponent } from './components/view-flick/view-flick.component
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'viewall', component: MyFlicksComponent},
-  {path: 'viewall/:movieId', component: ViewFlickComponent},
-  {path: 'edit/:movieId', component: EditFlickComponent},
+  {path: 'movies', component: MyFlicksComponent},
+  {path: 'movies/:movieId', component: ViewFlickComponent},
+  {path: 'movies-edit/:movieId', component: EditFlickComponent},
   {path: 'tags/:movieId', component: TagsComponent},
-  {path: 'edittags', component: EditTagsComponent},
-  {path: 'add', component: AddAFlickComponent},
-  {path: 'search', component: PickAFlickComponent},
-  {path: 'results', component: SearchResultsUserDbComponent}
+  {path: 'tags-edit/:tagId', component: EditTagsComponent},
+  {path: 'movies-add', component: AddAFlickComponent},
+  {path: 'movies-search', component: PickAFlickComponent},
+  {path: 'movies-results', component: SearchResultsUserDbComponent}
 ];
 
 @NgModule({
