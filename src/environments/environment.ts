@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3000'  // this is for mock DB - update this to match backend later
 };
 
 /*
