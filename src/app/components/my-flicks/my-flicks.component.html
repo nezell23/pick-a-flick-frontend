@@ -1,1 +1,7 @@
-<p>my-flicks works!</p>
+<h1>User's Flicks</h1>
+<br>
+<div *ngFor = "let movie of allMovies">
+    <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+    <br>
+    <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+</div>
