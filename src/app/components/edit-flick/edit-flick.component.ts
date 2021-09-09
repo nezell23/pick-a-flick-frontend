@@ -28,10 +28,16 @@ export class EditFlickComponent implements OnInit {
   }
 
   // take movie info from form & update in DB when save button clicked
-  saveEditMovie() {
+  saveFlick() {
+    console.log("saveFlick works!")
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
       this.router.navigate([`movies/${this.currentId}`]) // need to put route here for View Flick page...not sure if this is correct notation...test!
     })
   }
+
+  
+  indexTracker(index: number, value: any) {
+    return index;
+  };
 
 }
