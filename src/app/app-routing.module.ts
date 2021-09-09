@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'movies', component: MyFlicksComponent},
   {path: 'movies/:movieId', component: ViewFlickComponent},
   {path: 'movies-edit/:movieId', component: EditFlickComponent},
-  {path: 'tags/:movieId', component: TagsComponent},
+  {path: 'movies-edit-tags/:movieId', component: TagsComponent},
   {path: 'tags-edit/:tagId', component: EditTagsComponent},
   {path: 'movies-add', component: AddAFlickComponent},
   {path: 'movies-search', component: PickAFlickComponent},
