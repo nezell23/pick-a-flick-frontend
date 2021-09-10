@@ -31,13 +31,21 @@ export class EditFlickComponent implements OnInit {
   saveFlick() {
     console.log("saveFlick works!")
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-      this.router.navigate([`movies/${this.currentId}`]) // need to put route here for View Flick page...not sure if this is correct notation...test!
-    })
+      this.router.navigate([`movies/${this.currentId}`]) 
+    });
+  }
+
+  // save updated movie info and then navigate to Tags page to edit tags
+  saveThenEditTags() {
+    console.log("saveThenEditTags works!")
+    this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
+      this.router.navigate([`movies-edit-tags/${this.currentId}`])
+    });
   }
 
   
   indexTracker(index: number, value: any) {
     return index;
-  };
+  }
 
 }

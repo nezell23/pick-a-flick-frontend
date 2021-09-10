@@ -4,5 +4,6 @@
     <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
     <br>
     <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+    <br><br><br>
 </div>
 <div *ngIf = "!allMovies.length">No Flicks Added Yet!</div>
