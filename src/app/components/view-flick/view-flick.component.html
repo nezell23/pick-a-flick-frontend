@@ -3,13 +3,8 @@
     <p>{{currentMovie.movieTitle}}</p>
     <p>Year released: {{currentMovie.year}}</p>
     <p>Run time: {{currentMovie.runTimeInMinutes}} minutes</p>
-    <div>Genre:
-        <span *ngFor = "let genre of currentMovie.genre; last as isLast">{{genre}}<span *ngIf = "!isLast">, </span></span>
-    </div>
-    <br>
-    <div>Starring:
-        <span *ngFor = "let actor of currentMovie.leadActors; last as isLast">{{actor}}<span *ngIf = "!isLast">, </span></span>
-    </div>
+    <p>Genre: {{currentMovie.genre}}</p>
+    <p>Starring: {{currentMovie.leadActors}}</p>
     <p>Description: {{currentMovie.description}}</p>
     <div>Tags:
         <span *ngFor = "let tag of currentMovie.tags; last as isLast">{{tag}}<span *ngIf = "!isLast">, </span></span>

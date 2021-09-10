@@ -5,8 +5,8 @@ export class Movie {
     movieTitle: string;
     year: number;
     runTimeInMinutes: number;
-    genre: string[];
-    leadActors: string[];
+    genre: string;
+    leadActors: string;
     description: string;
     tags: string[];
 }
