@@ -16,7 +16,7 @@ export class MyFlicksComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe(response => {
-      console.log(response);
+      console.log(response)
       this.allMovies = response;
     });
   }

@@ -1,0 +1,19 @@
+{
+  "tags": [
+    {
+      "tagId": 1,
+      "authorId": 1,
+      "tagName": "Never Seen"
+    },
+    {
+      "tagId": 2,
+      "authorId": 1,
+      "tagName": "5 Stars"
+    },
+    {
+      "tagId": 3,
+      "authorId": 1,
+      "tagName": "Up Next"
+    }
+  ]
+}

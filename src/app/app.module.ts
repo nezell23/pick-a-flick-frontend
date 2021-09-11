@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MyFlicksComponent } from './components/my-flicks/my-flicks.component';
 import { ViewFlickComponent } from './components/view-flick/view-flick.component';
 import { EditFlickComponent } from './components/edit-flick/edit-flick.component';
-import { TagsComponent } from './components/tags/tags.component';
+import { ManageTagsComponent } from './components/tags/manage-tags.component';
 import { AddAFlickComponent } from './components/add-a-flick/add-a-flick.component';
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
@@ -28,7 +28,7 @@ import { EditTagsComponent } from './components/edit-tags/edit-tags.component';
     MyFlicksComponent,
     ViewFlickComponent,
     EditFlickComponent,
-    TagsComponent,
+    ManageTagsComponent,
     AddAFlickComponent,
     PickAFlickComponent,
     SearchResultsUserDbComponent,

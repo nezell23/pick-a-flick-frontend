@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchResultsUserDbComponent } from './search-results-user-db.component';
 
-describe('SearchUserDbComponent', () => {
+describe('SearchResultsUserDbComponent', () => {
   let component: SearchResultsUserDbComponent;
   let fixture: ComponentFixture<SearchResultsUserDbComponent>;
 
