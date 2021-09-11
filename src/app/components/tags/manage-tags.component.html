@@ -1,4 +1,26 @@
-<p>tags works!</p>
+<h1>Manage Your Tags:</h1>
+
+<div class="container">
+    <div *ngFor = "let tag of allTags">
+        <span>{{tag.tagName}}   </span>       
+        <button class="btn btn-sm" (click)="updateTag()">Update</button> 
+        <button class="btn btn-sm" (click)="deleteTag(tag.tagId)">Delete</button>
+        <br>
+    </div>
+</div>
+
+<br><br>
+
+<form #createTag="ngForm">
+<div class="form-group">
+    <label for="createTag">Create a new tag:</label>
+    <input name = "addTagName" type="text" class="form-control" id="createTag" [(ngModel)]="newTag.tagName">
+    <button class="btn btn-sm" (click)="addTag(); createTag.reset()">Add Tag</button>
+</div>
+</form>
+
+<br><br>
+
 
 
 <!-- Use this code to generate the tags and let them be editable as separate fields -->
@@ -58,4 +80,4 @@
 <br><br>
 <button type="button" class="btn btn-lg" (click)="saveThenEditTags()">Edit Tags</button>
 <button type="button" class="btn btn-lg" (click)="saveFlick()">Save Flick</button>
- -->
+-->
