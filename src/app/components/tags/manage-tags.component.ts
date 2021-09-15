@@ -10,6 +10,9 @@ import { TagsService } from 'src/app/services/tags.service';
 })
 export class ManageTagsComponent implements OnInit {
 
+  // api base route or whatever
+  apiServerUrl: string = 'http://localhost:4000/'
+
   // to hold all the tags
   allTags: Tag[] = [];
   newTag: Tag = new Tag();
@@ -29,9 +32,14 @@ export class ManageTagsComponent implements OnInit {
   });
 }
 
-  // called when Save button is clicked to save updates to tags
+  // called when Update button is clicked - not working right yet
   updateTag() {
     console.log("updateTag works!")
+    this.router.navigate(["movies"])
+    // this.router.navigate([`tags-edit/${this.currentId}`])
+    // tags-edit/:tagId
+    // `${this.apiServerUrl}/${tagId}`
+    
   //   console.log(tagId);
   //   this.tagsService.editTag(tagId, this.allTags).subscribe(response => {
   //     console.log(this.editTag);
@@ -60,47 +68,3 @@ export class ManageTagsComponent implements OnInit {
   }
   
 }
-
-// Use this code to help with the edit tags functionality:
-
-// export class EditFlickComponent implements OnInit {
-
-//   editMovie: Movie;
-//   currentId: number;
-
-//   constructor(private moviesService: MoviesService, private router: Router, private route: ActivatedRoute) { }
-
-//   ngOnInit(): void {
-//     // get the id of the movie being updated
-//     this.currentId = parseInt(this.route.snapshot.paramMap.get("movieId"));
-
-//     // display movie info in fields to edit
-//     this.moviesService.getMovieById(this.currentId).subscribe(response => {
-//       this.editMovie = response;
-//       console.log(response);
-//     });
-
-//   }
-
-//   // take movie info from form & update in DB when save button clicked
-//   saveFlick() {
-//     console.log("saveFlick works!")
-//     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-//       this.router.navigate([`movies/${this.currentId}`]) 
-//     });
-//   }
-
-//   // save updated movie info and then navigate to Tags page to edit tags
-//   saveThenEditTags() {
-//     console.log("saveThenEditTags works!")
-//     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-//       this.router.navigate([`movies-edit-tags/${this.currentId}`])
-//     });
-//   }
-
-  
-//   indexTracker(index: number, value: any) {
-//     return index;
-//   }
-
-// }

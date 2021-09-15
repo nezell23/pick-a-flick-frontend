@@ -2,8 +2,8 @@
 
 <div class="container">
     <div *ngFor = "let tag of allTags">
-        <span>{{tag.tagName}}   </span>       
-        <button class="btn btn-sm" (click)="updateTag()">Update</button> 
+        <span>{{tag.tagName}}   </span>
+        <a [routerLink]="['/tags-edit', tag.tagId]"><button class="btn btn-sm">Update</button></a>
         <button class="btn btn-sm" (click)="deleteTag(tag.tagId)">Delete</button>
         <br>
     </div>
@@ -20,64 +20,3 @@
 </form>
 
 <br><br>
-
-
-
-<!-- Use this code to generate the tags and let them be editable as separate fields -->
-<!-- current movie image -->
-<!-- <p><img src="{{editMovie.imageUrl}}"></p>
-
-<h3>Edit Your Flick's Details:</h3>
-
-<div class="container">
-    <div class="form-group">
-        <label for="image">Image Url:</label>
-        <input type="url" class="form-control" id="image" [(ngModel)]="editMovie.imageUrl">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="movieTitle">Title:</label>
-        <input type="text" class="form-control" id="movieTitle"
-            [(ngModel)]="editMovie.movieTitle">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="year">Year released:</label>
-        <input type="text" class="form-control" id="year"
-            [(ngModel)]="editMovie.year">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="runTime">Run time (minutes):</label>
-        <input type="text" class="form-control" id="runTime"
-            [(ngModel)]="editMovie.runTimeInMinutes">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="genre">Genre:</label>
-        <span *ngFor = "let genre of editMovie.genre; index as i; trackBy:indexTracker">
-        <input type="text" class="form-control" id="genre"
-            [(ngModel)]="editMovie.genre[i]"><br></span>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="leadActors">Starring:</label>
-        <span *ngFor = "let actor of editMovie.leadActors; index as i; trackBy:indexTracker">
-        <input name = i type="text" class="form-control" id="leadActors"
-            [(ngModel)]="editMovie.leadActors[i]"><br></span>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea type="text" class="form-control" id="description"
-            [(ngModel)]="editMovie.description"></textarea>
-    </div>
-    <br>
-    <div>Tags:
-        <span *ngFor = "let tag of editMovie.tags; last as isLast">{{tag}}<span *ngIf = "!isLast">, </span></span>
-    </div>
-</div>
-<br><br>
-<button type="button" class="btn btn-lg" (click)="saveThenEditTags()">Edit Tags</button>
-<button type="button" class="btn btn-lg" (click)="saveFlick()">Save Flick</button>
--->
