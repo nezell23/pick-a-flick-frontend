@@ -14,6 +14,10 @@
       "tagId": 3,
       "authorId": 1,
       "tagName": "Up Next"
+    },
+    {
+      "tagName": "New tag",
+      "tagId": 4
     }
   ]
 }

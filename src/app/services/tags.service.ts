@@ -26,9 +26,9 @@ export class TagsService {
   }
 
   // edit tag UPDATE
-  // need to provide updatedTag info
-  editTag(updatedTag: Tag): Observable<Tag> {
-    return this.http.put<Tag>(this.apiServerUrl, updatedTag);
+  // need to provide editId & updatedTag info
+  editTag(editId: number, updatedTag: Tag): Observable<Tag> {
+    return this.http.put<Tag>(`${this.apiServerUrl}/${editId}`, updatedTag);
   }
 
   // add tag CREATE
