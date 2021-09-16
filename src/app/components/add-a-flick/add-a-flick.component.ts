@@ -16,6 +16,7 @@ import { pluck } from 'rxjs/operators';
 })
 export class AddAFlickComponent implements OnInit {
 
+  // idea to display tags in dropdown list as such was inspired by code/library found here: https://github.com/NileshPatel17/ng-multiselect-dropdown
   // vars for utilizing tags:
   allTags: Tag[] = [];
   tagName: string;
