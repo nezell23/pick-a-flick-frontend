@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MyFlicksComponent } from './components/my-flicks/my-flicks.component';
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
-import { ManageTagsComponent } from './components/tags/manage-tags.component';
+import { ManageTagsComponent } from './components/manage-tags/manage-tags.component';
 import { ViewFlickComponent } from './components/view-flick/view-flick.component';
 
 const routes: Routes = [

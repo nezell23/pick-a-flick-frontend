@@ -48,6 +48,20 @@
     </div>
     <br>
 </div>
+
 <br><br>
-<button type="button" class="btn btn-lg" (click)="saveThenAddTags()">Add Tags?</button>
+
+<!-- For Tags list: -->
+<ng-multiselect-dropdown
+  [placeholder]="'Add tags'"
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  [(ngModel)]="newMovie.tags"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+>
+</ng-multiselect-dropdown>
+
+<br><br>
+
 <button type="button" class="btn btn-lg" (click)="addFlick()">Add Flick</button>

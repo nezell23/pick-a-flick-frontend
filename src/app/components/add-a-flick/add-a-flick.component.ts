@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
+import { FormControl } from '@angular/forms'; //added this for Material
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { Tag } from 'src/app/models/tag';
+import { TagsService } from 'src/app/services/tags.service';
+import { from } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-a-flick',
@@ -10,11 +16,44 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class AddAFlickComponent implements OnInit {
 
+  // idea to display tags in dropdown list as such was inspired by code/library found here: https://github.com/NileshPatel17/ng-multiselect-dropdown
+  // vars for utilizing tags:
+  allTags: Tag[] = [];
+  tagName: string;
+  array: string[] = [];
+  dropdownList: string[] = [];
+  dropdownSettings = {};
+
+  // var to hold new movie info
   newMovie: Movie = new Movie();
 
-  constructor(private moviesService: MoviesService, private router: Router) { }
+  constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    // get all the Tags
+      this.tagsService.getTags().subscribe(response => {
+        this.allTags = response;
+        console.log(this.allTags);
+      
+        // pluck tagNames and push them into dropdownList array
+        const allTagsPluck = from(this.allTags);
+        allTagsPluck.pipe(pluck('tagName')).subscribe(response => {
+          this.tagName = response;
+          this.array.push(this.tagName);
+          this.dropdownList = this.array;
+        })
+      })
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   // take movie info from form & add to DB when add button clicked
@@ -24,16 +63,12 @@ export class AddAFlickComponent implements OnInit {
     });
   }
 
-  // save new movie and then navigate to Tags page to add tags...need to figure out how to grab new movieId!
-  saveThenAddTags() {
-    this.moviesService.addMovie(this.newMovie).subscribe(response => {
-      // this.router.navigate([`movies-edit-tags/${this.currentId}`])
-      console.log("saveThenAddTags works!")
-    });
+  onItemSelect(item: any) {
+    console.log(item);
   }
 
-  indexTracker(index: number, value: any) {
-    return index;
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
 }
