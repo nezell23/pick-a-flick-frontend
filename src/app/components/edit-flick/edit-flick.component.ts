@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { from } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 import { Movie } from 'src/app/models/movie';
+import { Tag } from 'src/app/models/tag';
 import { MoviesService } from 'src/app/services/movies.service';
+import { TagsService } from 'src/app/services/tags.service';
 
 @Component({
   selector: 'app-edit-flick',
@@ -10,10 +15,18 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class EditFlickComponent implements OnInit {
 
+  // var to hold movie info to be edited
   editMovie: Movie;
   currentId: number;
 
-  constructor(private moviesService: MoviesService, private router: Router, private route: ActivatedRoute) { }
+  // vars for utilizing tags
+  allTags: Tag[] = [];
+  tagName: string;
+  array: string[] = [];
+  dropdownList: string[] = [];
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // get the id of the movie being updated
@@ -25,13 +38,38 @@ export class EditFlickComponent implements OnInit {
       console.log(response);
     });
 
+    // create dropdown list:
+    // get all the Tags
+    this.tagsService.getTags().subscribe(response => {
+      this.allTags = response;
+      console.log(this.allTags);
+
+      // pluck tagNames and push them into dropdownList array
+      const allTagsPluck = from(this.allTags);
+      allTagsPluck.pipe(pluck('tagName')).subscribe(response => {
+        this.tagName = response;
+        this.array.push(this.tagName);
+        this.dropdownList = this.array;
+      })
+    })
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
   }
 
   // take movie info from form & update in DB when save button clicked
   saveFlick() {
     console.log("saveFlick works!")
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-      this.router.navigate([`movies/${this.currentId}`]) 
+      this.router.navigate([`movies/${this.currentId}`])
     });
   }
 
@@ -43,9 +81,12 @@ export class EditFlickComponent implements OnInit {
     });
   }
 
-  
-  indexTracker(index: number, value: any) {
-    return index;
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
 }

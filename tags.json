@@ -18,6 +18,10 @@
     {
       "tagName": "New tag",
       "tagId": 4
+    },
+    {
+      "tagName": "Awesome",
+      "tagId": 5
     }
   ]
 }
