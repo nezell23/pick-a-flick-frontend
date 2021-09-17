@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
-import { FormControl } from '@angular/forms'; //added this for Material
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Tag } from 'src/app/models/tag';
 import { TagsService } from 'src/app/services/tags.service';
@@ -22,7 +21,7 @@ export class AddAFlickComponent implements OnInit {
   tagName: string;
   array: string[] = [];
   dropdownList: string[] = [];
-  dropdownSettings = {};
+  dropdownSettings : IDropdownSettings = {};
 
   // var to hold new movie info
   newMovie: Movie = new Movie();
@@ -30,7 +29,7 @@ export class AddAFlickComponent implements OnInit {
   constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router) { }
 
   ngOnInit() {
-
+  // create dropdown list:
     // get all the Tags
       this.tagsService.getTags().subscribe(response => {
         this.allTags = response;

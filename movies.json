@@ -46,26 +46,6 @@
       ]
     },
     {
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UX67_CR0,0,67,98_AL_.jpg",
-      "movieTitle": "Testing Movie Updated",
-      "year": "2010",
-      "runTimeInMinutes": "160",
-      "genre": "This, that, yep",
-      "leadActors": "Whoever",
-      "description": "Awesome stuff and things",
-      "movieId": 4
-    },
-    {
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UX67_CR0,0,67,98_AL_.jpg",
-      "movieTitle": "Testing Again",
-      "year": "2015",
-      "runTimeInMinutes": "186",
-      "genre": "Drama",
-      "leadActors": "Me",
-      "description": "Cool",
-      "movieId": 5
-    },
-    {
       "tags": [
         "Never Seen"
       ],
