@@ -5,8 +5,6 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Tag } from 'src/app/models/tag';
 import { TagsService } from 'src/app/services/tags.service';
-import { from } from 'rxjs';
-import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-a-flick',
@@ -18,9 +16,7 @@ export class AddAFlickComponent implements OnInit {
   // idea to display tags in dropdown list as such was inspired by code/library found here: https://github.com/NileshPatel17/ng-multiselect-dropdown
   // vars for utilizing tags:
   allTags: Tag[] = [];
-  tagName: string;
-  array: string[] = [];
-  dropdownList: string[] = [];
+  dropdownList: Tag[] = [];
   dropdownSettings : IDropdownSettings = {};
 
   // var to hold new movie info
@@ -34,20 +30,14 @@ export class AddAFlickComponent implements OnInit {
       this.tagsService.getTags().subscribe(response => {
         this.allTags = response;
         console.log(this.allTags);
-      
-        // pluck tagNames and push them into dropdownList array
-        const allTagsPluck = from(this.allTags);
-        allTagsPluck.pipe(pluck('tagName')).subscribe(response => {
-          this.tagName = response;
-          this.array.push(this.tagName);
-          this.dropdownList = this.array;
-        })
+        // assign Tags array to dropdownList
+        this.dropdownList = this.allTags;
       })
 
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
+      idField: 'tagId',
+      textField: 'tagName',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
