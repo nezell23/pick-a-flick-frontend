@@ -61,7 +61,9 @@
     {
       "tags": [
         "Never Seen",
-        "5 Stars"
+        "Up Next",
+        "New tag",
+        "Awesome"
       ],
       "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "movieTitle": "Another Movie with Tags",
@@ -71,6 +73,26 @@
       "leadActors": "Joe Ezell",
       "description": "Yes!!!!",
       "movieId": 7
+    },
+    {
+      "tags": [
+        {
+          "tagId": 1,
+          "tagName": "Never Seen"
+        },
+        {
+          "tagId": 3,
+          "tagName": "Up Next"
+        }
+      ],
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg",
+      "movieTitle": "Testing New Tag Setup",
+      "year": "2020",
+      "runTimeInMinutes": "160",
+      "genre": "Action",
+      "leadActors": "Me",
+      "description": "Sweet please work!",
+      "movieId": 8
     }
   ]
 }

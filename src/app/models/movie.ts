@@ -1,3 +1,5 @@
+import { Tag } from "./tag";
+
 export class Movie {
     movieId: number;
     authorId: number;
@@ -8,5 +10,5 @@ export class Movie {
     genre: string;
     leadActors: string;
     description: string;
-    tags: string[];
+    tags: Tag[];
 }

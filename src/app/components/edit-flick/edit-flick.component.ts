@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { from } from 'rxjs';
-import { pluck } from 'rxjs/operators';
 import { Movie } from 'src/app/models/movie';
 import { Tag } from 'src/app/models/tag';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -21,9 +19,7 @@ export class EditFlickComponent implements OnInit {
 
   // vars for utilizing tags
   allTags: Tag[] = [];
-  tagName: string;
-  array: string[] = [];
-  dropdownList: string[] = [];
+  dropdownList: Tag[] = [];
   dropdownSettings: IDropdownSettings = {};
 
   constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router, private route: ActivatedRoute) { }
@@ -43,25 +39,19 @@ export class EditFlickComponent implements OnInit {
     this.tagsService.getTags().subscribe(response => {
       this.allTags = response;
       console.log(this.allTags);
-
-      // pluck tagNames and push them into dropdownList array
-      const allTagsPluck = from(this.allTags);
-      allTagsPluck.pipe(pluck('tagName')).subscribe(response => {
-        this.tagName = response;
-        this.array.push(this.tagName);
-        this.dropdownList = this.array;
-      })
+      // assign Tags array to dropdownList
+      this.dropdownList = this.allTags;
     })
 
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
+  this.dropdownSettings = {
+    singleSelection: false,
+    idField: 'tagId',
+    textField: 'tagName',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 3,
+    allowSearchFilter: true
+  };
 
   }
 
@@ -70,14 +60,6 @@ export class EditFlickComponent implements OnInit {
     console.log("saveFlick works!")
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
       this.router.navigate([`movies/${this.currentId}`])
-    });
-  }
-
-  // save updated movie info and then navigate to Tags page to edit tags
-  saveThenEditTags() {
-    console.log("saveThenEditTags works!")
-    this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-      this.router.navigate([`movies-edit-tags/${this.currentId}`])
     });
   }
 
