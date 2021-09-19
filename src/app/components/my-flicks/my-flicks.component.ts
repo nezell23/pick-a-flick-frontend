@@ -15,10 +15,27 @@ export class MyFlicksComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+    this.getAllMovies();
+  }
+
+  getAllMovies() {
     this.moviesService.getMovies().subscribe(response => {
       console.log(response)
       this.allMovies = response;
     });
+  }
+
+  searchMovies(key: string) {
+    const results: Movie[] = [];
+    for (const movie of this.allMovies) {
+      if (movie.movieTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(movie);
+      }
+    }
+    this.allMovies = results;
+    if (results.length === 0 || !key) {
+      this.getAllMovies();
+    }
   }
 
 }

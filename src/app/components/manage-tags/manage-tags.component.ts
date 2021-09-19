@@ -39,26 +39,7 @@ export class ManageTagsComponent implements OnInit {
     this.tagsService.editTag(tagId, editTag).subscribe(response => {
       this.getAllTags();
     })
-    // this.router.navigate([`tags-edit/${this.currentId}`])
-    // tags-edit/:tagId
-    // `${this.apiServerUrl}/${tagId}`
-    
-  //   console.log(tagId);
-  //   this.tagsService.editTag(tagId, this.allTags).subscribe(response => {
-  //     console.log(this.editTag);
-  //     this.getAllTags();
-  //   });
-  //   this.tagsService.editTag(tagId, this.editMovie).subscribe(response => {
-  //     this.router.navigate([`movies/${this.currentId}`]) 
-  //   });
   }
-
-  // Adib code: play around with:**************************************************
-  // updateTagg(tagId: number, tag: Tag) {
-  //   this.tagsService.editTag(tagId, tag).subscribe(response => {
-  //     // /api/tags/{id}/update {name: "mynew tag"}
-  //   })
-  // }
 
   // called when delete button is clicked to delete a tag
   deleteTag(tagId: number) {
@@ -77,7 +58,7 @@ export class ManageTagsComponent implements OnInit {
     })
   }
 
-  // called when editTags button is clicked to toggle display to editable fields
+  // called when editTags button is clicked to toggle between display-only and editable div
   toggleDisplay() {
     this.isEdit = !this.isEdit;
     console.log(this.isEdit);
