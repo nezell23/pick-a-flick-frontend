@@ -11,9 +11,18 @@
       "leadActors": "Elijah Wood, Ian McKellen, Orlando Bloom",
       "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
       "tags": [
-        "5 stars",
-        "Never seen",
-        "Up next"
+        {
+          "tagId": 2,
+          "tagName": "5 Stars"
+        },
+        {
+          "tagId": 1,
+          "tagName": "Never Seen"
+        },
+        {
+          "tagId": 3,
+          "tagName": "Up Next"
+        }
       ]
     },
     {
@@ -27,7 +36,10 @@
       "leadActors": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong",
       "description": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced and powerful cyborg.",
       "tags": [
-        "5 stars"
+        {
+          "tagId": 2,
+          "tagName": "5 Stars"
+        }
       ]
     },
     {
@@ -41,13 +53,22 @@
       "leadActors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
       "description": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
       "tags": [
-        "Never seen",
-        "Up next"
+        {
+          "tagId": 1,
+          "tagName": "Never Seen"
+        },
+        {
+          "tagId": 3,
+          "tagName": "Up Next"
+        }
       ]
     },
     {
       "tags": [
-        "Never Seen"
+        {
+          "tagId": 1,
+          "tagName": "Never Seen"
+        }
       ],
       "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "movieTitle": "Movie with Tags",
@@ -60,10 +81,22 @@
     },
     {
       "tags": [
-        "Never Seen",
-        "Up Next",
-        "New tag",
-        "Awesome"
+        {
+          "tagId": 1,
+          "tagName": "Never Seen"
+        },
+        {
+          "tagId": 3,
+          "tagName": "Up Next"
+        },
+        {
+          "tagId": 4,
+          "tagName": "New tag"
+        },
+        {
+          "tagId": 5,
+          "tagName": "Awesome"
+        }
       ],
       "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "movieTitle": "Another Movie with Tags",
@@ -79,6 +112,10 @@
         {
           "tagId": 1,
           "tagName": "Never Seen"
+        },
+        {
+          "tagId": 2,
+          "tagName": "5 Stars"
         },
         {
           "tagId": 3,

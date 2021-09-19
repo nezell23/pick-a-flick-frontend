@@ -16,12 +16,8 @@
       "tagName": "Up Next"
     },
     {
-      "tagName": "New tag",
-      "tagId": 4
-    },
-    {
-      "tagName": "Awesome",
-      "tagId": 5
+      "tagId": 6,
+      "tagName": "Awesome"
     }
   ]
 }
