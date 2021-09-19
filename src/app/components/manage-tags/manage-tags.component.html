@@ -1,12 +1,26 @@
 <h1>Manage Your Tags:</h1>
 
-<div class="container">
+<!-- Show this div by default -->
+<div class="container" *ngIf = "!isEdit">
     <div *ngFor = "let tag of allTags">
-        <span>{{tag.tagName}}   </span>
-        <a [routerLink]="['/tags-edit', tag.tagId]"><button class="btn btn-sm">Update</button></a>
+        <span>{{tag.tagName}}  </span>
         <button class="btn btn-sm" (click)="deleteTag(tag.tagId)">Delete</button>
         <br>
     </div>
+    <br>
+    <button class="btn btn-sm" (click)="toggleDisplay()">Edit Tags</button>
+</div>
+
+<!-- Show this div when user wants to edit tag names -->
+<div class="container" *ngIf = "isEdit">
+    <div *ngFor = "let tag of allTags">
+        <input type="text" class="form-control" id="editTagName" [(ngModel)]="tag.tagName">
+        <button class="btn btn-sm" (click)="updateTag(tag.tagId, tag)">Update Tag</button>
+        <button class="btn btn-sm" (click)="deleteTag(tag.tagId)">Delete</button>
+        <br>
+    </div>
+    <br>
+    <button class="btn btn-sm" (click)="toggleDisplay()">Save Changes</button>
 </div>
 
 <br><br>
@@ -18,5 +32,3 @@
     <button class="btn btn-sm" (click)="addTag(); createTag.reset()">Add Tag</button>
 </div>
 </form>
-
-<br><br>

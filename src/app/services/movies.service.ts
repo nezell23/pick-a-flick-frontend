@@ -16,9 +16,10 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   // get all movies READ
-  getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${this.apiServerUrl}/movies`);
+  getMovies(tag?: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${this.apiServerUrl}/movies?tag=${tag}`);
   }
+
 
   // get movie by id READ
   // need to provide movieId

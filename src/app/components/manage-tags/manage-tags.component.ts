@@ -17,6 +17,7 @@ export class ManageTagsComponent implements OnInit {
   allTags: Tag[] = [];
   newTag: Tag = new Tag();
   editTag: Tag;
+  isEdit: boolean = false;
 
   constructor(private tagsService: TagsService, private router: Router) { }
 
@@ -33,9 +34,11 @@ export class ManageTagsComponent implements OnInit {
 }
 
   // called when Update button is clicked - not working right yet
-  updateTag() {
+  updateTag(tagId: number, editTag: Tag) {
     console.log("updateTag works!")
-    this.router.navigate(["movies"])
+    this.tagsService.editTag(tagId, editTag).subscribe(response => {
+      this.getAllTags();
+    })
     // this.router.navigate([`tags-edit/${this.currentId}`])
     // tags-edit/:tagId
     // `${this.apiServerUrl}/${tagId}`
@@ -49,6 +52,13 @@ export class ManageTagsComponent implements OnInit {
   //     this.router.navigate([`movies/${this.currentId}`]) 
   //   });
   }
+
+  // Adib code: play around with:**************************************************
+  // updateTagg(tagId: number, tag: Tag) {
+  //   this.tagsService.editTag(tagId, tag).subscribe(response => {
+  //     // /api/tags/{id}/update {name: "mynew tag"}
+  //   })
+  // }
 
   // called when delete button is clicked to delete a tag
   deleteTag(tagId: number) {
@@ -65,6 +75,12 @@ export class ManageTagsComponent implements OnInit {
     this.tagsService.addTag(this.newTag).subscribe(response => {
       this.getAllTags();
     })
+  }
+
+  // called when editTags button is clicked to toggle display to editable fields
+  toggleDisplay() {
+    this.isEdit = !this.isEdit;
+    console.log(this.isEdit);
   }
   
 }
