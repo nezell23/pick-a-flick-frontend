@@ -1,6 +1,4 @@
-<h1>User's Flicks</h1>
-
-<br>
+<h2>My Flicks!</h2>
 
 <input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies" class="form-control" placeholder="Search movies..." >
 
@@ -10,6 +8,8 @@
     <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
     <br>
     <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+    <div>Tags:</div>
+    <div *ngFor = "let tag of movie.tags">{{tag.tagName}}</div>
     <br><br><br>
 </div>
 <div *ngIf = "!allMovies.length">No Flicks Added Yet!</div>
