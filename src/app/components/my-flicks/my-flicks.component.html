@@ -1,16 +1,23 @@
 <h2>My Flicks!</h2>
 
-<input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies" class="form-control" placeholder="Search movies..." >
+<input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies"
+    class="form-control" placeholder="Search movies...">
 
 <br><br>
 
-<div *ngFor = "let movie of allMovies">
-    <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
-    <br>
-    <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
-    <div>Tags:
-        <span *ngFor = "let tag of movie.tags; last as isLast"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf = "!isLast">, </span></span>
+<div *ngIf = "showMovies">
+    <div *ngFor="let movie of allMovies">
+        <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+        <br>
+        <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+        <div>Tags:
+            <span *ngFor="let tag of movie.tags; last as isLast"><a
+                    [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">,
+                </span></span>
+        </div>
+        <br><br><br>
     </div>
-    <br><br><br>
 </div>
-<div *ngIf = "!allMovies.length">No Flicks Added Yet!</div>
+
+<div *ngIf="!allMovies.length">No Flicks Added Yet!</div>
+<div *ngIf="!showMovies">No Results</div>
