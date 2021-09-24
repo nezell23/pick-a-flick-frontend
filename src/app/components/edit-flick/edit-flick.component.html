@@ -45,6 +45,11 @@
         <textarea type="text" class="form-control" id="description"
             [(ngModel)]="editMovie.description"></textarea>
     </div>
+    <input type="hidden" ngModel="{{editMovie.movieId}}" name="movieId" class="form-control" id="movieId">
+    <input type="hidden" ngModel="{{editMovie.authorId}}" name="authorId" class="form-control" id="authorId">
+    <!-- Figure out a way to send the authorId with the tags?  Or handle this on backend? -->
+    <!-- <input type="hidden" ngModel="{{editMovie.tags}}" name="tags" class="form-control" id="tags"> -->
+
 </div>
 
 <br><br>
