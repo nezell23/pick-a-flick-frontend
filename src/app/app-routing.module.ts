@@ -9,6 +9,7 @@ import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.comp
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
 import { ManageTagsComponent } from './components/manage-tags/manage-tags.component';
 import { ViewFlickComponent } from './components/view-flick/view-flick.component';
+import { ViewFlicksByTagComponent } from './components/view-flicks-by-tag/view-flicks-by-tag.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'tags-edit/:tagId', component: EditTagsComponent},
   {path: 'movies-add', component: AddAFlickComponent},
   {path: 'movies-search', component: PickAFlickComponent},
-  {path: 'movies-results', component: SearchResultsUserDbComponent}
+  {path: 'movies-results', component: SearchResultsUserDbComponent},
+  {path: 'movies-search/:tagId', component: ViewFlicksByTagComponent}
 ];
 
 @NgModule({

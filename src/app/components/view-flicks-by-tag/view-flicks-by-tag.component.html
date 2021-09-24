@@ -1,0 +1,11 @@
+<h2>Flicks tagged as {{currentTag.tagName}}:</h2>
+
+<div *ngFor = "let movie of taggedMovies">
+    <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+    <br>
+    <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+    <!-- See comment in ts file above reloadPage() -->
+    <!-- <div>Tags:</div>
+    <div *ngFor = "let tag of movie.tags"><a [routerLink]="['/movies-search', tag.tagId]" (click)="reloadPage()">{{tag.tagName}}</a></div> -->
+    <br><br><br>
+</div>
