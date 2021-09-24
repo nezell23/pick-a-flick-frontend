@@ -25,6 +25,12 @@ export class MoviesService {
     return this.http.get<Movie>(`${this.apiServerUrl}/movies/find/${movieId}`);
   }
 
+  // get movies by tagId READ
+  // need to provide tagId
+  getMoviesByTag(tagId: number): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${this.apiServerUrl}/movies/find/tag/${tagId}`);
+  }
+
   // edit movie UPDATE
   // need to provide editId and updatedMovie info
   editMovie(editId: number, updatedMovie: Movie): Observable<Movie> {
