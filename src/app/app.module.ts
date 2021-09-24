@@ -19,6 +19,7 @@ import { SearchResultsUserDbComponent } from './components/search-results-user-d
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditTagsComponent } from './components/edit-tags/edit-tags.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewFlicksByTagComponent } from './components/view-flicks-by-tag/view-flicks-by-tag.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PickAFlickComponent,
     SearchResultsUserDbComponent,
     NavBarComponent,
-    EditTagsComponent
+    EditTagsComponent,
+    ViewFlicksByTagComponent
   ],
   imports: [
     BrowserModule,
