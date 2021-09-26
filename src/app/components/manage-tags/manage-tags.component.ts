@@ -17,6 +17,7 @@ export class ManageTagsComponent implements OnInit {
   allTags: Tag[] = [];
   newTag: Tag = new Tag();
   editTag: Tag;
+  tagId: number; 
   isEdit: boolean = false;
 
   constructor(private tagsService: TagsService, private router: Router) { }
@@ -28,14 +29,12 @@ export class ManageTagsComponent implements OnInit {
   // get all the Tags
   getAllTags() {
     this.tagsService.getTags().subscribe(response => {
-    console.log(response)
     this.allTags = response;
   });
 }
 
-  // called when Update button is clicked - not working right yet
+  // called when Update button is clicked
   updateTag(tagId: number, editTag: Tag) {
-    console.log("updateTag works!")
     this.tagsService.editTag(tagId, editTag).subscribe(response => {
       this.getAllTags();
     })
@@ -43,8 +42,6 @@ export class ManageTagsComponent implements OnInit {
 
   // called when delete button is clicked to delete a tag
   deleteTag(tagId: number) {
-    console.log("deleteTag works!")
-    console.log(tagId);
     this.tagsService.deleteTag(tagId).subscribe(response => {
       this.getAllTags();
     });
@@ -52,16 +49,22 @@ export class ManageTagsComponent implements OnInit {
 
   // called when add button is clicked - user wants to add a new tag
   addTag() {
-    console.log("addTag works!")
     this.tagsService.addTag(this.newTag).subscribe(response => {
       this.getAllTags();
     })
   }
 
   // called when editTags button is clicked to toggle between display-only and editable div
-  toggleDisplay() {
-    this.isEdit = !this.isEdit;
-    console.log(this.isEdit);
+  showUpdateTags(tagId: number) {
+    this.isEdit = true;
+    this.tagId = tagId;
+    this.tagsService.getTagById(tagId).subscribe(response => {
+      this.editTag = response;
+    });
+  }
+
+  showAllTags() {
+    this.isEdit = false;
   }
   
 }
