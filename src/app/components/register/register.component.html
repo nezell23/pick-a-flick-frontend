@@ -1,1 +1,41 @@
-<p>register works!</p>
+<h2>Sign Up!</h2>
+
+<div class="container">
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" id="firstName" placeholder="First name" required
+            [(ngModel)]="newUser.firstName" #firstName="ngModel">
+    </div>
+    <!-- <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+        <div *ngIf="firstName.errors?.required">First name is required.</div>
+    </div> -->
+    <br>
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Last name" [(ngModel)]="newUser.lastName"
+            #lastName="ngModel">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="text" class="form-control" id="username" placeholder="my_email@email.com"
+            [(ngModel)]="newUser.username" #username="ngModel">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" class="form-control" id="password" placeholder="Password"
+            [(ngModel)]="newUser.password" #password="ngModel">
+    </div>
+    <br>
+</div>
+
+<br><br>
+
+<button type="button" class="btn btn-lg" (click)="addUser()">Create Account</button>
+
+<br><br>
+
+<div>
+    Already registered? <a routerLink="/login">Login Here!</a>
+</div>

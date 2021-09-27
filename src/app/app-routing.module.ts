@@ -10,9 +10,13 @@ import { SearchResultsUserDbComponent } from './components/search-results-user-d
 import { ManageTagsComponent } from './components/manage-tags/manage-tags.component';
 import { ViewFlickComponent } from './components/view-flick/view-flick.component';
 import { ViewFlicksByTagComponent } from './components/view-flicks-by-tag/view-flicks-by-tag.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'movies', component: MyFlicksComponent},
   {path: 'movies/:movieId', component: ViewFlickComponent},
