@@ -7,12 +7,56 @@ import { User } from '../models/user';
 @Injectable({
   providedIn: 'root'
 })
+
+// Code for authentication taken from: https://developer.okta.com/blog/2019/05/16/angular-authentication-jwt#add-an-angular-client-with-jwt-authentication
 export class UsersService {
 
   // environment.apiBaseUrlUsers: 'http://localhost:8080/api'
   apiServerUrl: string = environment.apiBaseUrlUsers;
 
+  private loggedIn: boolean = false;
+  private token: string;
+
   constructor(private http: HttpClient) { }
+
+  setLoggedIn(loggedIn: boolean, token?: string) {
+    this.loggedIn = loggedIn;
+    this.token = token;
+  }
+
+  request(method: string, route: string, data?: any) {
+    if (method === 'GET') {
+      return this.get(route, data);
+    }
+
+    const header = (this.loggedIn) ? { Authorization: `Bearer ${this.token}` } : undefined;
+
+    return this.http.request(method, this.apiServerUrl + route, {
+      body: data,
+      responseType: 'json',
+      observe: 'body',
+      headers: header
+    });
+  }
+
+  get(route: string, data?: any) {
+    const header = (this.loggedIn) ? { Authorization: `Bearer ${this.token}` } : undefined;
+
+    let params = new HttpParams();
+    if (data !== undefined) {
+      Object.getOwnPropertyNames(data).forEach(key => {
+        params = params.set(key, data[key]);
+      });
+    }
+
+    return this.http.get(this.apiServerUrl + route, {
+      responseType: 'json',
+      headers: header,
+      params
+    });
+  }
+
+  // Might update/remove below methods and just use request method for all...
 
   // get all users READ
   getUsers(): Observable<User[]> {
@@ -42,5 +86,5 @@ export class UsersService {
   deleteUser(deleteId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiServerUrl}/users/delete/${deleteId}`);
   }
-  
+
 }
