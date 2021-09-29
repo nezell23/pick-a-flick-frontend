@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-my-flicks',
@@ -15,9 +16,10 @@ export class MyFlicksComponent implements OnInit {
   // var to toggle between shown divs
   showMovies: boolean = true;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.isLoggedIn()
     this.getAllMovies();
   }
 
@@ -45,5 +47,4 @@ export class MyFlicksComponent implements OnInit {
       this.getAllMovies();
     }
   }
-
 }

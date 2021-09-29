@@ -1,1 +1,52 @@
-<p>login works!</p>
+<h2>Log In!</h2>
+
+<div class="container">
+    <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="text" class="form-control" id="username" placeholder="my_email@email.com" required
+            [(ngModel)]="loginForm.username" #username="ngModel">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" class="form-control" id="password" placeholder="Enter your password..." [(ngModel)]="loginForm.password"
+            #password="ngModel">
+    </div>
+    <br>
+</div>
+
+<button type="button" class="btn btn-lg" (click)="onLogin()">Login</button>
+
+<br><br>
+
+<div>
+    New? <a routerLink="/register">Sign Up Here!</a>
+</div>
+
+<!-- <div>
+    {{token}}
+</div> -->
+
+
+<!-- <div *ngIf="token.length == 0">
+    <div style="color: red; font-weight: bold;">{{(error ? error : '')}}</div>
+    <div>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginForm.username" />
+    </div>
+    <div>
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="loginForm.password" />
+    </div>
+    <div>
+        <button (click)="onLogin()">Submit</button>
+    </div>
+</div>
+<div *ngIf="token.length > 0">
+    Logged In.
+</div>
+<div>
+    <div>
+        {{token}}
+    </div>
+</div> -->

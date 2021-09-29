@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiBaseUrlMovies: 'http://localhost:8080/api',
-  apiBaseUrlTags: 'http://localhost:8080/api',
-  apiBaseUrlUsers: 'http://localhost:8080/api'
+  apiBaseUrlMovies: 'http://localhost:8080/api/movies',
+  apiBaseUrlTags: 'http://localhost:8080/api/tags',
+  apiBaseUrlUsers: 'http://localhost:8080'
 };
 
 /*
