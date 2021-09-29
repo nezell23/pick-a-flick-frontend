@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  addUser() {
+  register() {
     this.usersService.addUser(this.newUser).subscribe(response => {
       this.router.navigate(["login"])
     });

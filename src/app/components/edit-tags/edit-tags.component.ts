@@ -35,9 +35,6 @@ export class EditTagsComponent implements OnInit {
     this.tagsService.editTag(this.currentId, this.editTag).subscribe(response => {
       this.router.navigate(["tags-manage"]);
     })
-    // this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
-    //   this.router.navigate([`movies/${this.currentId}`]) 
-    // });
   }
 
 }

@@ -10,9 +10,6 @@ import { TagsService } from 'src/app/services/tags.service';
 })
 export class ManageTagsComponent implements OnInit {
 
-  // api base route or whatever
-  apiServerUrl: string = 'http://localhost:4000/'
-
   // to hold all the tags
   allTags: Tag[] = [];
   newTag: Tag = new Tag();
