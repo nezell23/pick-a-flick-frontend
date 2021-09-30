@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
+import { User } from 'src/app/models/user';
+import { MoviesService } from 'src/app/services/movies.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
+  recentMovies: Movie[] = [];
+
+  constructor(private usersService: UsersService, private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+
+    this.usersService.getUserInfo().subscribe(response => {
+      this.user = response;
+    });
+
+    this.moviesService.getRecentMovies().subscribe(response => {
+      this.recentMovies = response;
+    })
+
   }
 
 }

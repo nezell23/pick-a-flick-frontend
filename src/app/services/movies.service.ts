@@ -18,40 +18,37 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  // get all movies READ
+  // get all movies
   getMovies(): Observable<Movie[]> {
-    // let myHeaders = {
-    //   Authorization: localStorage.getItem("token")
-    // }
     return this.http.get<Movie[]>(`${this.apiServerUrl}/all`, {headers: this.myHeaders});
   }
 
-  // get movie by id READ
-  // need to provide movieId
+  // get 10 most recently added movies
+  getRecentMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${this.apiServerUrl}/recent`, {headers: this.myHeaders});
+  }
+
+  // get movie by id
   getMovieById(movieId: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.apiServerUrl}/find/${movieId}`, {headers: this.myHeaders});
   }
 
-  // get movies by tagId READ
-  // need to provide tagId
+  // get movies by tagId
   getMoviesByTag(tagId: number): Observable<Movie[]> {
     return this.http.get<Movie[]>(`${this.apiServerUrl}/find/tag/${tagId}`, {headers: this.myHeaders});
   }
 
-  // edit movie UPDATE
-  // need to provide editId and updatedMovie info
+  // edit movie
   editMovie(editId: number, updatedMovie: Movie): Observable<Movie> {
     return this.http.put<Movie>(`${this.apiServerUrl}/update/${editId}`, updatedMovie, {headers: this.myHeaders});
   }
 
-  // add movie CREATE
-  // need to provide newMovie info
+  // add movie
   addMovie(newMovie: Movie): Observable<Movie> {
     return this.http.post<Movie>(`${this.apiServerUrl}/add`, newMovie, {headers: this.myHeaders});
   }
 
-  // delete movie DELETE
-  // need to provide deleteId
+  // delete movie
   deleteMovie(deleteId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiServerUrl}/delete/${deleteId}`, {headers: this.myHeaders});
   }
