@@ -13,7 +13,7 @@ export class ManageTagsComponent implements OnInit {
   // to hold all the tags
   allTags: Tag[] = [];
   newTag: Tag = new Tag();
-  editTag: Tag;
+  editTag: Tag = new Tag();
   tagId: number; 
   isEdit: boolean = false;
 

@@ -14,7 +14,7 @@ import { TagsService } from 'src/app/services/tags.service';
 export class EditFlickComponent implements OnInit {
 
   // var to hold movie info to be edited
-  editMovie: Movie;
+  editMovie: Movie = new Movie();
   currentId: number;
 
   // vars for utilizing tags
@@ -31,14 +31,12 @@ export class EditFlickComponent implements OnInit {
     // display movie info in fields to edit
     this.moviesService.getMovieById(this.currentId).subscribe(response => {
       this.editMovie = response;
-      console.log(response);
     });
 
     // create dropdown list:
     // get all the Tags
     this.tagsService.getTags().subscribe(response => {
       this.allTags = response;
-      console.log(this.allTags);
       // assign Tags array to dropdownList
       this.dropdownList = this.allTags;
     })
@@ -57,7 +55,6 @@ export class EditFlickComponent implements OnInit {
 
   // take movie info from form & update in DB when save button clicked
   saveFlick() {
-    console.log("saveFlick works!")
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
       this.router.navigate([`movies/${this.currentId}`])
     });
