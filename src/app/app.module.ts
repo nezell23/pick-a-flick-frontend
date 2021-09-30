@@ -17,7 +17,6 @@ import { AddAFlickComponent } from './components/add-a-flick/add-a-flick.compone
 import { PickAFlickComponent } from './components/pick-a-flick/pick-a-flick.component';
 import { SearchResultsUserDbComponent } from './components/search-results-user-db/search-results-user-db.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { EditTagsComponent } from './components/edit-tags/edit-tags.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewFlicksByTagComponent } from './components/view-flicks-by-tag/view-flicks-by-tag.component';
 
@@ -36,7 +35,6 @@ import { ViewFlicksByTagComponent } from './components/view-flicks-by-tag/view-f
     PickAFlickComponent,
     SearchResultsUserDbComponent,
     NavBarComponent,
-    EditTagsComponent,
     ViewFlicksByTagComponent
   ],
   imports: [
