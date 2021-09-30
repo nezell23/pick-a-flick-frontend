@@ -1,7 +1,4 @@
 <h2>Manage Your Tags:</h2>
-<p>isEdit: {{this.isEdit}}</p>
-<p>tagId: {{this.tagId}}</p>
-
 
 <!-- Show this div by default -->
 <div class="container" *ngIf="!isEdit">
@@ -18,11 +15,13 @@
 <div class="container" *ngIf="isEdit">
     <input type="text" class="form-control" id="editTagName" [(ngModel)]="editTag.tagName">
     <br><br>
+    <button class="btn btn-sm" (click)="showAllTags()">Go Back</button>
     <button class="btn btn-sm" (click)="updateTag(tagId, editTag); showAllTags()">Save Changes</button>
 </div>
 
 <br><br>
 
+<!-- Show this div by default as well -->
 <div class="container" *ngIf="!isEdit">
     <form #createTag="ngForm">
         <div class="form-group">
