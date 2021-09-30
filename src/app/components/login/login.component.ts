@@ -21,14 +21,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   onLogin() {
-    console.log(this.loginForm.username);
-    console.log(this.loginForm.password);
-
+    console.log(this.loginForm.username + "logged in successfully!");
     this.usersService.loginUser(this.loginForm.username, this.loginForm.password)
       .subscribe(
         res => {
           this.token = res.headers.get("Authorization");
-          console.log(this.token);
           localStorage.setItem("token", this.token);
           this.usersService.isLoggedIn();
           this.router.navigate(["home"]);
