@@ -19,7 +19,6 @@ export class MyFlicksComponent implements OnInit {
   constructor(private moviesService: MoviesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.usersService.isLoggedIn()
     this.getAllMovies();
   }
 

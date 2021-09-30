@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 
 // Code for authentication taken from: https://developer.okta.com/blog/2019/05/16/angular-authentication-jwt#add-an-angular-client-with-jwt-authentication
-export class UsersService {
+export class UsersService implements CanActivate {
 
   // environment.apiBaseUrlUsers: 'http://localhost:8080'
   apiServerUrl: string = environment.apiBaseUrlUsers;
@@ -18,6 +18,19 @@ export class UsersService {
   isUserLoggedIn: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  // checks to see if the user is logged in and routes them accordingly
+  // based on code by JavaInUse: https://www.youtube.com/watch?v=QQxqHT7yhHc&t=104s
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.isUserLoggedIn) {
+      return true;
+    }
+    else {
+      alert("Please login or create a new account!");
+      this.router.navigate(['login']);
+      return false;
+    }
+  }
 
   // need function to make POST request to apiServerUrl + /api/users/add route for user to register
   // Need to provide new user data (which comes from the component)
