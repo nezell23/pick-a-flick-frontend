@@ -33,15 +33,7 @@ export class UsersService {
       password
     }
     return this.http.post<any>(`${this.apiServerUrl}/login`, loginInfo, { observe: 'response' })
-  }  
-  // This was Sujith's code but it kept returning a null response...had to add the { observe: 'response' } at very end after loginInfo...not sure why?
-  // loginUser(username: string, password: string): Observable<any> {
-  //   let loginInfo = {
-  //     username: username,
-  //     password: password
-  //   }
-  //   return this.http.post<any>(`${this.apiServerUrl}/login`, loginInfo);
-  // }
+  } 
 
   // need function to make GET request to apiServerUrl + /api/users/home (or whatever route I pick in backend) to get user info
   // Need to provide an Authorization header with the token from login
