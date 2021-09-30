@@ -1,18 +1,19 @@
 <h2>Log In!</h2>
 
 <div class="container">
-    <div class="form-group">
-        <label for="username">Email:</label>
-        <input type="text" class="form-control" id="username" placeholder="my_email@email.com" required
-            [(ngModel)]="loginForm.username" #username="ngModel">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password..." [(ngModel)]="loginForm.password"
-            #password="ngModel">
-    </div>
-    <br>
+    <form>
+        <div class="form-group">
+            <label for="username">Email:</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="my_email@email.com" required
+                [(ngModel)]="loginForm.username" #username="ngModel">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password..."
+                [(ngModel)]="loginForm.password" #password="ngModel">
+        </div>
+    </form>
 </div>
 
 <button type="button" class="btn btn-lg" (click)="onLogin()">Login</button>

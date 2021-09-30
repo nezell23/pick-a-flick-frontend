@@ -18,31 +18,27 @@ export class TagsService {
 
   constructor(private http: HttpClient) { }
 
-  // get all tags READ
+  // get all tags
   getTags(): Observable<Tag[]> {
     return this.http.get<Tag[]>(`${this.apiServerUrl}/all`, {headers: this.myHeaders});
   }
 
-  // get tag by id READ
-  // need to provide tagId
+  // get tag by id
   getTagById(tagId: number): Observable<Tag> {
     return this.http.get<Tag>(`${this.apiServerUrl}/find/${tagId}`, {headers: this.myHeaders});
   }
 
-  // edit tag UPDATE
-  // need to provide editId & updatedTag info
+  // edit tag 
   editTag(editId: number, updatedTag: Tag): Observable<Tag> {
     return this.http.put<Tag>(`${this.apiServerUrl}/update/${editId}`, updatedTag, {headers: this.myHeaders});
   }
 
-  // add tag CREATE
-  // Need to provide newTag info
+  // add tag 
   addTag(newTag: Tag): Observable<Tag> {
     return this.http.post<Tag>(`${this.apiServerUrl}/add`, newTag, {headers: this.myHeaders});
   }
 
-  // delete tag DELETE
-  // need to provide deleteId
+  // delete tag 
   deleteTag(deleteId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiServerUrl}/delete/${deleteId}`, {headers: this.myHeaders});
   }
