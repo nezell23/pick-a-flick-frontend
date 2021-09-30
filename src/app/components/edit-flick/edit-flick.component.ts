@@ -60,6 +60,11 @@ export class EditFlickComponent implements OnInit {
     });
   }
 
+  goBack() {
+    console.log("go back clicked");
+    this.router.navigate([`movies/${this.currentId}`]);
+  }
+
   onItemSelect(item: any) {
     console.log(item);
   }
