@@ -1,0 +1,9 @@
+.smallImage {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+
+}
+.smallImageContainer {
+    width: 25%;
+}

@@ -5,9 +5,11 @@
 
 <br><br>
 
-<div *ngIf = "showMovies">
+<div *ngIf="showMovies">
     <div *ngFor="let movie of allMovies">
-        <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+        <div class="smallImageContainer">
+            <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}" class="smallImage"></a>
+        </div>
         <br>
         <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
         <div>Tags:

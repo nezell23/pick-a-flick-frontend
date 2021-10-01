@@ -49,7 +49,7 @@ export class UsersService implements CanActivate {
   // gets user data from backend to display on user's Home page
   getUserInfo(): Observable<any> {
     let myHeaders = {
-      Authorization: localStorage.getItem("token")
+      Authorization: "Bearer " + localStorage.getItem("token")
     }
     return this.http.get(`${this.apiServerUrl}/api/users/find/username`, {headers: myHeaders});
   }
