@@ -13,7 +13,7 @@ export class MoviesService {
   apiServerUrl: string = environment.apiBaseUrlMovies;
 
   myHeaders: any = {
-    Authorization: localStorage.getItem("token")
+    Authorization: "Bearer " + localStorage.getItem("token")
   }
 
   constructor(private http: HttpClient) { }

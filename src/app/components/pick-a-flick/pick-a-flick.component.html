@@ -1,13 +1,8 @@
 <h2>Pick a Flick!</h2>
 
 <!-- For Tags list: -->
-<ng-multiselect-dropdown
-  [placeholder]="'Search by tag...'"
-  [settings]="dropdownSettings"
-  [data]="dropdownList"
-  (onSelect)="onItemSelect($event)"
-  (onSelectAll)="onSelectAll($event)"
->
+<ng-multiselect-dropdown [placeholder]="'Search by tag...'" [settings]="dropdownSettings" [data]="dropdownList"
+  (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
 </ng-multiselect-dropdown>
 
 <br><br>
@@ -16,12 +11,12 @@
 
 <br><br>
 
-<div *ngFor = "let movie of taggedMovies">
-    <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
-    <br>
-    <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
-    <div>Tags:</div>
-    <div *ngFor = "let tag of movie.tags"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a></div>
-    <br><br><br>
+<div *ngFor="let movie of taggedMovies">
+  <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+  <br>
+  <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+  <div>Tags:</div>
+  <div *ngFor="let tag of movie.tags"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a></div>
+  <br><br><br>
 </div>
-<div *ngIf = "this.show">No Flicks Found!</div>
+<div *ngIf="this.show">No Flicks with that Tag!</div>

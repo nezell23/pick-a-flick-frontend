@@ -13,7 +13,7 @@ export class TagsService {
   apiServerUrl: string = environment.apiBaseUrlTags;
 
   myHeaders: any = {
-    Authorization: localStorage.getItem("token")
+    Authorization: "Bearer " + localStorage.getItem("token")
   }
 
   constructor(private http: HttpClient) { }
