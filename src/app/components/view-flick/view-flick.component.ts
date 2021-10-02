@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
@@ -9,7 +10,7 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./view-flick.component.css']
 })
 export class ViewFlickComponent implements OnInit {
-  
+
   currentMovie: Movie = new Movie();
   currentId: number;
 
@@ -23,13 +24,19 @@ export class ViewFlickComponent implements OnInit {
     this.moviesService.getMovieById(this.currentId).subscribe(response => {
       console.log(response);
       this.currentMovie = response;
-    });
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
 
-    // delete movie when delete button clicked
-    deleteMovieButton(currentId: number): void {
-      this.moviesService.deleteMovie(currentId).subscribe(response => {
-        this.router.navigate(["movies"])    
+  // delete movie when delete button clicked
+  deleteMovieButton(currentId: number): void {
+    this.moviesService.deleteMovie(currentId).subscribe(response => {
+      this.router.navigate(["movies"])
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       });
-    }
+  }
 }

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { User } from 'src/app/models/user';
@@ -20,12 +21,16 @@ export class HomeComponent implements OnInit {
 
     this.usersService.getUserInfo().subscribe(response => {
       this.user = response;
-    });
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
 
     this.moviesService.getRecentMovies().subscribe(response => {
       this.recentMovies = response;
-    })
-
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
-
 }

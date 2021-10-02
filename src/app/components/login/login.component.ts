@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.error = "Unable to login with username and password."
+          console.log("Login unsuccessful.");
           alert(this.error);
         }
       );

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -25,6 +26,9 @@ export class MyFlicksComponent implements OnInit {
   getAllMovies() {
     this.moviesService.getMovies().subscribe(response => {
       this.allMovies = response;
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
     });
   }
 
