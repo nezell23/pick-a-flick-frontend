@@ -66,44 +66,4 @@ export class UsersService implements CanActivate {
       return true;
     }
   }
-
-  // isLoggedIn(): boolean {
-  //   let token = localStorage.getItem("token");
-  //   console.log(!(token === null))
-  //   return !(token === null);
-  // }
-
-//   setLoggedIn(loggedIn: boolean, token?: string) {
-//     this.loggedIn = loggedIn;
-//     this.token = token;
-//   }
-
 }
-
-
-//   // Might remove below methods...not sure I need?
-
-//   // get all users READ
-//   getUsers(): Observable<User[]> {
-//     return this.http.get<User[]>(`${this.apiServerUrl}/api/users/all`);
-//   }
-
-//   // get user by id READ
-//   // need to provide userId
-//   getUserById(userId: number): Observable<User> {
-//     return this.http.get<User>(`${this.apiServerUrl}/api/users/find/${userId}`);
-//   }
-
-//   // edit user UPDATE
-//   // need to provide editId and updatedUser info
-//   editUser(editId: number, updatedUser: User): Observable<User> {
-//     return this.http.put<User>(`${this.apiServerUrl}/api/users/update/${editId}`, updatedUser);
-//   }
-
-//   // delete user DELETE
-//   // need to provide deleteId
-//   deleteUser(deleteId: number): Observable<any> {
-//     return this.http.delete<any>(`${this.apiServerUrl}/api/users/delete/${deleteId}`);
-//   }
-
-// }

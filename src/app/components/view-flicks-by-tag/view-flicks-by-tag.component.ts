@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
@@ -24,20 +25,21 @@ export class ViewFlicksByTagComponent implements OnInit {
 
     // get the tagId of the selected tag
     this.tagId = parseInt(this.route.snapshot.paramMap.get("tagId"));
-    console.log(this.tagId);
 
     // get the current tag info:
     this.tagsService.getTagById(this.tagId).subscribe(response => {
       this.currentTag = response;
-      console.log(this.currentTag);
-    })
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
 
     // pass in this.tagId (which is id of selected tag) to get all movies linked to that tag
     this.moviesService.getMoviesByTag(this.tagId).subscribe(response => {
       this.taggedMovies = response;
-      console.log(this.taggedMovies);
-    });
-
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
-
 }

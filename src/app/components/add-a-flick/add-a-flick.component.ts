@@ -5,6 +5,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Tag } from 'src/app/models/tag';
 import { TagsService } from 'src/app/services/tags.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-a-flick',
@@ -17,7 +18,7 @@ export class AddAFlickComponent implements OnInit {
   // vars for utilizing tags:
   allTags: Tag[] = [];
   dropdownList: Tag[] = [];
-  dropdownSettings : IDropdownSettings = {};
+  dropdownSettings: IDropdownSettings = {};
 
   // var to hold new movie info
   newMovie: Movie = new Movie();
@@ -25,14 +26,17 @@ export class AddAFlickComponent implements OnInit {
   constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router) { }
 
   ngOnInit() {
-  // create dropdown list:
+    // create dropdown list:
     // get all the Tags
-      this.tagsService.getTags().subscribe(response => {
-        this.allTags = response;
-        console.log(this.allTags);
-        // assign Tags array to dropdownList
-        this.dropdownList = this.allTags;
-      })
+    this.tagsService.getTags().subscribe(response => {
+      this.allTags = response;
+      // assign Tags array to dropdownList
+      this.dropdownList = this.allTags;
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -47,9 +51,16 @@ export class AddAFlickComponent implements OnInit {
 
   // take movie info from form & add to DB when add button clicked
   addFlick() {
+    // if user did not input image url, assign to stock image
+    if (this.newMovie.imageUrl == null) {
+      this.newMovie.imageUrl = "https://media.istockphoto.com/vectors/silhouette-of-cinema-camera-on-yellow-banner-vector-id657482632?k=20&m=657482632&s=612x612&w=0&h=H6CB54Dqlo9xy3GuyTleJYsl91YhOLlDESqPepgqDpA=";
+    }
     this.moviesService.addMovie(this.newMovie).subscribe(response => {
-      this.router.navigate(["movies"])  // later, route to View Flick page instead, once I figure out how to grab new movieId!
-    });
+      this.router.navigate(["movies"])
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
 
   onItemSelect(item: any) {
@@ -59,5 +70,4 @@ export class AddAFlickComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
-
 }

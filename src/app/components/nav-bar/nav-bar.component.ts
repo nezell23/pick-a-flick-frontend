@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
@@ -17,8 +18,10 @@ export class NavBarComponent implements OnInit {
 
     this.usersService.getUserInfo().subscribe(response => {
       this.user = response;
-    });
-
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
 
   getToken() {
@@ -30,5 +33,4 @@ export class NavBarComponent implements OnInit {
     this.usersService.isUserLoggedIn = false;
     console.log("Logged out, isUserLoggedIn: " + this.usersService.isUserLoggedIn);
   }
-
 }

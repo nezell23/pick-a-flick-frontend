@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -22,7 +23,9 @@ export class RegisterComponent implements OnInit {
   register() {
     this.usersService.addUser(this.newUser).subscribe(response => {
       this.router.navigate(["login"])
-    });
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
-
 }

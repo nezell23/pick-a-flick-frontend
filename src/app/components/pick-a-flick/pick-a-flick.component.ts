@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
@@ -39,7 +40,10 @@ export class PickAFlickComponent implements OnInit {
       console.log(this.allTags);
       // assign Tags array to dropdownList
       this.dropdownList = this.allTags;
-    })
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
 
     this.dropdownSettings = {
       singleSelection: true,
@@ -56,7 +60,6 @@ export class PickAFlickComponent implements OnInit {
   onItemSelect(item: any) {
     console.log(item);
     this.tagId = item.tagId;
-    console.log(this.tagId);
   }
 
   onSelectAll(items: any) {
@@ -69,9 +72,10 @@ export class PickAFlickComponent implements OnInit {
       this.taggedMovies = response;
       if (this.taggedMovies.length == 0) {
         this.show = true;
-      };
-    });
-
+      }
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
-
 }

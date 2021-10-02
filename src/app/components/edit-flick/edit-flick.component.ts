@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
@@ -31,7 +32,10 @@ export class EditFlickComponent implements OnInit {
     // display movie info in fields to edit
     this.moviesService.getMovieById(this.currentId).subscribe(response => {
       this.editMovie = response;
-    });
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
 
     // create dropdown list:
     // get all the Tags
@@ -39,29 +43,33 @@ export class EditFlickComponent implements OnInit {
       this.allTags = response;
       // assign Tags array to dropdownList
       this.dropdownList = this.allTags;
-    })
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
 
-  this.dropdownSettings = {
-    singleSelection: false,
-    idField: 'tagId',
-    textField: 'tagName',
-    selectAllText: 'Select All',
-    unSelectAllText: 'UnSelect All',
-    itemsShowLimit: 3,
-    allowSearchFilter: true
-  };
-
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'tagId',
+      textField: 'tagName',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   // take movie info from form & update in DB when save button clicked
   saveFlick() {
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
       this.router.navigate([`movies/${this.currentId}`])
-    });
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
   }
 
   goBack() {
-    console.log("go back clicked");
     this.router.navigate([`movies/${this.currentId}`]);
   }
 
@@ -72,5 +80,4 @@ export class EditFlickComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
-
 }
