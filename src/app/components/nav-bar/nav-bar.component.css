@@ -1,0 +1,9 @@
+.logo {
+    display:block;
+    width:506px;
+    height:75px;
+    text-indent:100%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+}

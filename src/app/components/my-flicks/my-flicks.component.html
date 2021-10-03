@@ -1,7 +1,11 @@
 <h2>My Flicks!</h2>
 
+<div class="container">
+    <div class="Search">
 <input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies"
     class="form-control" placeholder="Search movies...">
+</div>
+</div>
 
 <br><br>
 
@@ -12,7 +16,8 @@
         </div>
         <br>
         <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
-        <div>Tags:
+        
+        <div class="tags">Tags:
             <span *ngFor="let tag of movie.tags; last as isLast"><a
                     [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">,
                 </span></span>

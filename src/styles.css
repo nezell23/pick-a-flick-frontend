@@ -1,25 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 h3 {
-    text-align: center;
+  text-align: center;
 }
 
 title {
-    text-align: center;
+  text-align: center;
 }
 
 nav {
-    text-align: center;
+  text-align: center;
 }
 
 div {
-    text-align: center;
+  text-align: center;
 }
 
+button {
+  margin-bottom: 01%;
+  margin-right: 01%;
+  margin-top: 01%;
+  margin-bottom: 01%;
+}
