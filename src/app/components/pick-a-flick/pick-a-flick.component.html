@@ -1,9 +1,13 @@
 <h2>Pick a Flick!</h2>
 
+<div class="container">
+  <div class="search-by-tag">
 <!-- For Tags list: -->
 <ng-multiselect-dropdown [placeholder]="'Search by tag...'" [settings]="dropdownSettings" [data]="dropdownList"
   (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
 </ng-multiselect-dropdown>
+</div>
+</div>
 
 <br><br>
 <div class="container">
