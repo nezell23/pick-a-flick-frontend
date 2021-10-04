@@ -14,15 +14,7 @@ export class NavBarComponent implements OnInit {
 
   constructor(public usersService: UsersService) { }
 
-  ngOnInit(): void {
-
-    this.usersService.getUserInfo().subscribe(response => {
-      this.user = response;
-    },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      });
-  }
+  ngOnInit(): void { }
 
   getToken() {
     return localStorage.getItem("token");
