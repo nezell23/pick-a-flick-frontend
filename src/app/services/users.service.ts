@@ -58,6 +58,7 @@ export class UsersService implements CanActivate {
     if(!localStorage.getItem("token")) {
       window.alert("You are not logged in");
       this.router.navigate(["login"]);
+      this.isUserLoggedIn = false;
       return false;
     }
     else {
