@@ -1,10 +1,9 @@
 <!-- Show this div by default -->
-<div class="container" *ngIf="!isEdit">
+<div *ngIf="!isEdit">
     <h2>Manage Your Tags:</h2>
 
     <br><br>
     <div *ngFor="let tag of allTags">
-        <div class="container">
             <div class="row">
                 <div class="col align-right">
                     <span>{{tag.tagName}} </span>
@@ -14,7 +13,6 @@
                     <button class="btn btn-sm" (click)="deleteTag(tag.tagId)"><img src="assets/images/delete.png" alt="Delete"></button>
                 </div>
             </div>
-        </div>
         <br>
     </div>
     <br>

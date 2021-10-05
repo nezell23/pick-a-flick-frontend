@@ -2,15 +2,20 @@
 
 <br><br>
 
-<h4 class="sentence1">Whether you're planning your next watch party or just need to find a flick that's friendly for the whole family,
-    Pick a Flick is for you!</h4>
+<div class="container">
+    <h4 class="sentence1">Whether you're planning your next watch party or just need to find a flick that's friendly for
+        the whole family,
+        Pick a Flick is for you!</h4>
+</div>
 
 <br><br>
 
 <div *ngIf="recentMovies.length">
     <h2>Recently Added:</h2>
     <div *ngFor="let movie of recentMovies">
-        <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+        <div class="image-med-container">
+            <a [routerLink]="['/movies', movie.movieId]"><img class="movie-image" src="{{movie.imageUrl}}"></a>
+        </div>
         <br>
         <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
         <div>Tags:
@@ -24,3 +29,5 @@
 </div>
 
 <div *ngIf="!recentMovies.length">No Flicks Added Yet!</div>
+
+<br><br>

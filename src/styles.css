@@ -1,32 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 body {
   height: 100%;
 }
 body {
-  margin: 0 auto;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-h2 {
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-}
-
-title {
-  text-align: center;
-}
-
-nav {
-  text-align: center;
-}
-
-div {
-  text-align: center;
+  margin-top: 5em;
+  font-size: 1em;
 }
 
 button {
@@ -36,6 +13,122 @@ button {
   margin-bottom: 01%;
 }
 
+.logo {
+  display:block;
+  width:506px;
+  height:75px;
+  text-indent:100%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.logo-container {
+  background-color: white;
+}
+
 .movie-title {
-  font-size: x-large;
+  font-size: 1.5em;
+}
+
+.movie-image {
+  max-width: 100%;
+  min-width: 100%;
+  height: auto;
+
+}
+.image-sm-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-med-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-container {
+  text-align: center;
+}
+
+/* Mobile */
+@media only screen
+and (min-device-width: 280px)
+and (max-device-width: 500px)
+and (-webkit-min-device-pixel-ratio: 3) {
+  .main-container {
+    padding: 0 1%;
+    text-align: center;
+  }
+  nav {
+    font-size: x-small;
+  }
+  .image-sm-container {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .image-med-container {
+    width: 85%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Tablet */
+@media only screen
+and (min-device-width: 501px)
+and (max-device-width: 1300px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  .main-container {
+    padding: 0 15%;
+    text-align: center;
+  }
+  nav {
+    font-size: larger;
+  }
+  .image-sm-container {
+    width: 35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .image-med-container {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Laptop */
+@media screen
+and (min-device-width: 1301px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  .main-container {
+    padding: 0 30%;
+    text-align: center;
+  }
+  nav {
+    font-size: larger;
+  }
+  .image-sm-container {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .image-med-container {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -3,30 +3,29 @@
 <br><br>
 
 <div class="container">
-  <div class="search-by-tag">
-<!-- For Tags list: -->
-<ng-multiselect-dropdown [placeholder]="'Search by tag...'" [settings]="dropdownSettings" [data]="dropdownList"
-  (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
-</ng-multiselect-dropdown>
-</div>
+  <!-- For Tags list: -->
+  <ng-multiselect-dropdown [placeholder]="'Search by tag...'" [settings]="dropdownSettings" [data]="dropdownList"
+    (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
 </div>
 
 <br><br>
-<div class="container">
-    <div class="findFlickByTag">
+
 <button type="button" class="btn btn-lg" (click)="findFlickByTag()">Find Flicks</button>
-    </div>
-</div>
 
 <br><br>
 
 <div *ngFor="let movie of taggedMovies">
-  <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+  <div class="image-med-container">
+    <a [routerLink]="['/movies', movie.movieId]"><img class="movie-image" src="{{movie.imageUrl}}"></a>
+  </div>
   <br>
   <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
-  <div>Tags:</div>
-  <div *ngFor="let tag of movie.tags"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a></div>
+  <div>Tags:
+    <span *ngFor="let tag of movie.tags; last as isLast"><a
+        [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">,
+      </span></span>
+  </div>
   <br><br><br>
-</div>
 
-<div *ngIf="!showMovies">No Flicks with that Tag!</div>
+  <div *ngIf="!showMovies">No Flicks with that Tag!</div>

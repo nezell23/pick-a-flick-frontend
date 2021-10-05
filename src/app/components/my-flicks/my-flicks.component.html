@@ -3,22 +3,20 @@
 <br><br>
 
 <div class="container">
-    <div class="Search">
-<input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies"
-    class="form-control" placeholder="Search your flicks...">
-</div>
+    <input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies"
+        class="form-control" placeholder="Search your flicks...">
 </div>
 
 <br><br>
 
 <div *ngIf="showMovies">
     <div *ngFor="let movie of allMovies">
-        <div class="smallImageContainer">
-            <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}" class="smallImage"></a>
+        <div class="image-med-container">
+            <a [routerLink]="['/movies', movie.movieId]"><img class="movie-image" src="{{movie.imageUrl}}"></a>
         </div>
         <br>
         <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
-        
+
         <div class="tags">Tags:
             <span *ngFor="let tag of movie.tags; last as isLast"><a
                     [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">,
@@ -30,4 +28,3 @@
 
 <div *ngIf="!allMovies.length">No Flicks Added Yet!</div>
 <div *ngIf="!showMovies">No Results</div>
-
