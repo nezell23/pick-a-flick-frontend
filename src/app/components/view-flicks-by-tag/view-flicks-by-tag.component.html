@@ -3,7 +3,9 @@
 <br><br>
 
 <div *ngFor="let movie of taggedMovies">
-    <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
+    <div class="image-med-container">
+        <a [routerLink]="['/movies', movie.movieId]"><img class="movie-image" src="{{movie.imageUrl}}"></a>
+    </div>
     <br>
     <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
     <br><br><br>

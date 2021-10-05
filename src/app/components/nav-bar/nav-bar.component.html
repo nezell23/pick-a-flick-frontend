@@ -1,23 +1,26 @@
 <br>
-<div *ngIf="!getToken()">
-    <div class="logo-container">
-        <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
+<div class="fixed-top">
+    <div *ngIf="!getToken()">
+        <div class="logo-container">
+            <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
+        </div>
     </div>
 </div>
 
 <br>
-<div *ngIf="getToken()">
-    <div>
-        <div class="logo-container">
-            <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
-        </div>
+<div class="fixed-top">
+    <div *ngIf="getToken()">
         <div>
-            <nav>
-                <a routerLink="home">Home</a> | <a routerLink="movies">My Flicks</a> | <a routerLink="movies-add">Add a
-                    Flick</a> |
-                <a routerLink="movies-search">Pick a Flick</a> | <a routerLink="tags-manage">Manage Tags</a> | <a
-                    routerLink="login" (click)="onLogout()">Logout</a>
-            </nav>
+            <div class="logo-container">
+                <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
+            </div>
+            <div>
+                <nav>
+                    <a routerLink="home">Home</a> | <a routerLink="movies">My Flicks</a> | <a routerLink="movies-add">Add a Flick</a> | 
+                    <a routerLink="movies-search">Pick a Flick</a> | <a routerLink="tags-manage">Manage Tags</a> | 
+                    <a routerLink="login" (click)="onLogout()">Logout</a>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
