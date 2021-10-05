@@ -1,8 +1,8 @@
-<h2>Edit Flick!</h2>
-<!-- current movie image -->
-<p><img src="{{editMovie.imageUrl}}"></p>
+<h2>Edit Your Flick's Details:</h2>
 
-<h3>Edit Your Flick's Details:</h3>
+<br><br>
+
+<p><img src="{{editMovie.imageUrl}}"></p>
 
 <div class="container">
     <form>
@@ -13,7 +13,8 @@
         <br>
         <div class="form-group">
             <label for="movieTitle">Title:</label>
-            <input type="text" name="movieTitle" class="form-control" id="movieTitle" [(ngModel)]="editMovie.movieTitle">
+            <input type="text" name="movieTitle" class="form-control" id="movieTitle"
+                [(ngModel)]="editMovie.movieTitle">
         </div>
         <br>
         <div class="form-group">
@@ -23,7 +24,8 @@
         <br>
         <div class="form-group">
             <label for="runTime">Run time (minutes):</label>
-            <input type="text" name="runTime" class="form-control" id="runTime" [(ngModel)]="editMovie.runTimeInMinutes">
+            <input type="text" name="runTime" class="form-control" id="runTime"
+                [(ngModel)]="editMovie.runTimeInMinutes">
         </div>
         <br>
         <div class="form-group">
@@ -33,29 +35,34 @@
         <br>
         <div class="form-group">
             <label for="leadActors">Starring:</label>
-            <input type="text" name="leadActors" class="form-control" id="leadActors" [(ngModel)]="editMovie.leadActors">
+            <input type="text" name="leadActors" class="form-control" id="leadActors"
+                [(ngModel)]="editMovie.leadActors">
         </div>
         <br>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea type="text" name="description" class="form-control" id="description" [(ngModel)]="editMovie.description"></textarea>
+            <textarea type="text" name="description" class="form-control" id="description"
+                [(ngModel)]="editMovie.description"></textarea>
         </div>
-        <input type="hidden" name="movieId" ngModel="{{editMovie.movieId}}" name="movieId" class="form-control" id="movieId">
-        <input type="hidden" name="authorId" ngModel="{{editMovie.authorId}}" name="authorId" class="form-control" id="authorId">
-        <!-- Figure out a way to send the authorId with the tags?  Or handle this on backend? -->
-        <!-- <input type="hidden" ngModel="{{editMovie.tags}}" name="tags" class="form-control" id="tags"> -->
+        <br>
+        <input type="hidden" name="movieId" ngModel="{{editMovie.movieId}}" name="movieId" class="form-control"
+            id="movieId">
+        <input type="hidden" name="authorId" ngModel="{{editMovie.authorId}}" name="authorId" class="form-control"
+            id="authorId">
     </form>
+
+    <br><br>
+
+    <p>Tags:</p>
+    <!-- For Tags list: -->
+    <ng-multiselect-dropdown [placeholder]="'Add tags'" [settings]="dropdownSettings" [data]="dropdownList"
+        [(ngModel)]="editMovie.tags" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+    </ng-multiselect-dropdown>
+
+    <br><br>
+
+    <button type="button" class="btn btn-lg" (click)="goBack()">Go Back</button>
+    <button type="button" class="btn btn-lg" (click)="saveFlick()">Save Flick</button>
 </div>
 
 <br><br>
-
-<p>Tags:</p>
-<!-- For Tags list: -->
-<ng-multiselect-dropdown [placeholder]="'Add tags'" [settings]="dropdownSettings" [data]="dropdownList"
-    [(ngModel)]="editMovie.tags" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
-</ng-multiselect-dropdown>
-
-<br><br>
-
-<button class="btn btn-lg" (click)="goBack()">Go Back</button>
-<button type="button" class="btn btn-lg" (click)="saveFlick()">Save Flick</button>

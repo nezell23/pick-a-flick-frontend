@@ -9,7 +9,6 @@ import { Movie } from '../models/movie';
 })
 export class MoviesService {
 
-  // environment.apiBaseUrlMovies: 'http://localhost:8080/api/movies'
   apiServerUrl: string = environment.apiBaseUrlMovies;
 
   myHeaders: any = {

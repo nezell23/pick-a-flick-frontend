@@ -1,74 +1,63 @@
 <h2>Add a Flick!</h2>
-<!-- add stock movie image here -->
-<!-- <p><img src="{{editMovie.imageUrl}}"></p> -->
-
-<h3>Add Flick Details:</h3>
-
-<div class="container">
-    <div class="form-group">
-        <label for="image">Image Url:</label>
-        <input type="url" class="form-control" id="image" placeholder="Copy image address & paste here"
-        [(ngModel)]="newMovie.imageUrl">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="movieTitle">Title:</label>
-        <input type="text" class="form-control" id="movieTitle" placeholder="What's the name of your flick?"
-            [(ngModel)]="newMovie.movieTitle">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="year">Year released:</label>
-        <input type="text" class="form-control" id="year" placeholder= "When did it come out?"
-            [(ngModel)]="newMovie.year">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="runTime">Run time (minutes):</label>
-        <input type="text" class="form-control" id="runTime" placeholder="How long (in minutes) is your flick?"
-            [(ngModel)]="newMovie.runTimeInMinutes">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="genre">Genre:</label>
-        <input type="text" class="form-control" id="genre" placeholder="What genre(s) does your flick fall into?"
-            [(ngModel)]="newMovie.genre">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="leadActors">Starring:</label>
-        <input type="text" class="form-control" id="leadActors" placeholder="Who stars in your flick?"
-            [(ngModel)]="newMovie.leadActors">
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea type="text" class="form-control" id="description" placeholder="What's this flick about?"
-            [(ngModel)]="newMovie.description"></textarea>
-    </div>
-    <br>
-
 
 <br><br>
 
-<!-- For Tags list: -->
-<ng-multiselect-dropdown
-  [placeholder]="'Add tags'"
-  [settings]="dropdownSettings"
-  [data]="dropdownList"
-  [(ngModel)]="newMovie.tags"
-  (onSelect)="onItemSelect($event)"
-  (onSelectAll)="onSelectAll($event)"
->
-</ng-multiselect-dropdown>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="image">Image Url:</label>
+            <input type="url" name="image" class="form-control" id="image" placeholder="Copy image address & paste here"
+                [(ngModel)]="newMovie.imageUrl">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="movieTitle">Title:</label>
+            <input type="text" name="movieTitle" class="form-control" id="movieTitle" placeholder="What's the name of your flick?"
+                [(ngModel)]="newMovie.movieTitle">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="year">Year released:</label>
+            <input type="text" name="year" class="form-control" id="year" placeholder="When did it come out?"
+                [(ngModel)]="newMovie.year">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="runTime">Run time (minutes):</label>
+            <input type="text" name="runTime" class="form-control" id="runTime" placeholder="How long (in minutes) is your flick?"
+                [(ngModel)]="newMovie.runTimeInMinutes">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" name="genre" class="form-control" id="genre" placeholder="What genre(s) does your flick fall into?"
+                [(ngModel)]="newMovie.genre">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="leadActors">Starring:</label>
+            <input type="text" name="leadActors" class="form-control" id="leadActors" placeholder="Who stars in your flick?"
+                [(ngModel)]="newMovie.leadActors">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea type="text" name="description" class="form-control" id="description" placeholder="What's this flick about?"
+                [(ngModel)]="newMovie.description"></textarea>
+        </div>
+        <br>
+    </form>
+
+    <br><br>
+
+    <!-- For Tags list: -->
+    <ng-multiselect-dropdown [placeholder]="'Add tags'" [settings]="dropdownSettings" [data]="dropdownList"
+        [(ngModel)]="newMovie.tags" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+    </ng-multiselect-dropdown>
+
+    <br><br>
+
+    <button type="button" class="btn btn-lg" (click)="addFlick()">Add Flick</button>
+</div>
 
 <br><br>
-<div class="container">
-    <div class="addFlick">
-<button type="button" class="btn btn-lg" (click)="addFlick()">Add Flick</button>
-    </div>
-</div>
-</div>
-
-<br>
-<br>

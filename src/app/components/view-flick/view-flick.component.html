@@ -1,24 +1,26 @@
-<h2>Your Flick's Details!</h2>
+<h2>Your Flick's Details:</h2>
 
-<div>
+<br><br>
+
+<div class="container">
     <p><img src="{{currentMovie.imageUrl}}"></p>
-    <p>{{currentMovie.movieTitle}}</p>
+    <p class="movie-title">{{currentMovie.movieTitle}}</p>
     <p>Year released: {{currentMovie.year}}</p>
     <p>Run time: {{currentMovie.runTimeInMinutes}} minutes</p>
     <p>Genre: {{currentMovie.genre}}</p>
     <p>Starring: {{currentMovie.leadActors}}</p>
     <p>Description: {{currentMovie.description}}</p>
     <div>Tags:
-        <span *ngFor = "let tag of currentMovie.tags; last as isLast"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf = "!isLast">, </span></span>
+        <span *ngFor="let tag of currentMovie.tags; last as isLast"><a
+                [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">, </span></span>
     </div>
 
-<br><br>
-<a [routerLink]="['/movies-edit', currentMovie.movieId]"><button type="button" class="btn btn-lg">Edit Flick</button></a>
+    <br><br>
 
-<div class="container">
-    <div class="deleteMovieButton">
-<button type="button" class="btn btn-lg" (click)="deleteMovieButton(currentMovie.movieId)">Delete Flick</button>
+    <a [routerLink]="['/movies-edit', currentMovie.movieId]"><button type="button" class="btn btn-lg">Edit
+            Flick</button></a>
+    <button type="button" class="btn btn-lg" (click)="deleteMovieButton(currentMovie.movieId)">Delete Flick</button>
 
-</div>
-    </div>
+    <br><br>
+
 </div>

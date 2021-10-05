@@ -1,9 +1,11 @@
 <h2>My Flicks!</h2>
 
+<br><br>
+
 <div class="container">
     <div class="Search">
 <input type="search" (ngModelChange)="searchMovies(key.value)" #key="ngModel" ngModel name="key" id="searchMovies"
-    class="form-control" placeholder="Search movies...">
+    class="form-control" placeholder="Search your flicks...">
 </div>
 </div>
 
@@ -15,7 +17,7 @@
             <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}" class="smallImage"></a>
         </div>
         <br>
-        <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+        <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
         
         <div class="tags">Tags:
             <span *ngFor="let tag of movie.tags; last as isLast"><a

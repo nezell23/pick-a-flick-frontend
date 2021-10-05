@@ -52,7 +52,7 @@ export class AddAFlickComponent implements OnInit {
   // take movie info from form & add to DB when add button clicked
   addFlick() {
     // if user did not input image url, assign to stock image
-    if (this.newMovie.imageUrl == null) {
+    if (!this.newMovie.imageUrl) {
       this.newMovie.imageUrl = "https://media.istockphoto.com/vectors/silhouette-of-cinema-camera-on-yellow-banner-vector-id657482632?k=20&m=657482632&s=612x612&w=0&h=H6CB54Dqlo9xy3GuyTleJYsl91YhOLlDESqPepgqDpA=";
     }
     this.moviesService.addMovie(this.newMovie).subscribe(response => {

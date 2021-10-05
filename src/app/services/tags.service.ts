@@ -9,7 +9,6 @@ import { Tag } from '../models/tag';
 })
 export class TagsService {
 
-  // environment.apiBaseUrlTags: 'http://localhost:8080/api/tags'
   apiServerUrl: string = environment.apiBaseUrlTags;
 
   myHeaders: any = {

@@ -7,3 +7,9 @@
     overflow: hidden;
     margin: 0 auto;
 }
+.logo-container {
+    background-color: white;
+}
+nav {
+    font-size: larger;
+}

@@ -61,6 +61,10 @@ export class EditFlickComponent implements OnInit {
 
   // take movie info from form & update in DB when save button clicked
   saveFlick() {
+    // if user did not input image url, assign to stock image
+    if (!this.editMovie.imageUrl) {
+      this.editMovie.imageUrl = "https://media.istockphoto.com/vectors/silhouette-of-cinema-camera-on-yellow-banner-vector-id657482632?k=20&m=657482632&s=612x612&w=0&h=H6CB54Dqlo9xy3GuyTleJYsl91YhOLlDESqPepgqDpA=";
+    }
     this.moviesService.editMovie(this.currentId, this.editMovie).subscribe(response => {
       this.router.navigate([`movies/${this.currentId}`])
     },
