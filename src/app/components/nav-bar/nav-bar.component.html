@@ -1,23 +1,23 @@
 <br>
 <div *ngIf="!getToken()">
-    
-        <img class="logo" src="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/244399418_10215478979806973_5535647026265666292_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=EvA8WDW3Ll8AX_DIloW&_nc_ht=scontent-ort2-1.xx&oh=43f8fc393802cca8190ffc0e6b077f47&oe=617DCCEF">
-
-    <hr>
+    <div class="logo-container">
+        <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
+    </div>
 </div>
 
 <br>
 <div *ngIf="getToken()">
-    <h1>
-        <img class="logo" src="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/244399418_10215478979806973_5535647026265666292_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=EvA8WDW3Ll8AX_DIloW&_nc_ht=scontent-ort2-1.xx&oh=43f8fc393802cca8190ffc0e6b077f47&oe=617DCCEF">
-
-    </h1>
-    <hr>
     <div>
-        <nav>
-            <a routerLink="home">Home</a> | <a routerLink="movies">My Flicks</a> | <a routerLink="movies-add">Add a Flick</a> | 
-            <a routerLink="movies-search">Pick a Flick</a> | <a routerLink="tags-manage">Manage Tags</a> | <a routerLink="login" (click)="onLogout()">Logout</a>
-        </nav>
+        <div class="logo-container">
+            <img class="logo" src="assets/images/logo.png" alt="Pick a Flick | Movie Organizer">
+        </div>
+        <div>
+            <nav>
+                <a routerLink="home">Home</a> | <a routerLink="movies">My Flicks</a> | <a routerLink="movies-add">Add a
+                    Flick</a> |
+                <a routerLink="movies-search">Pick a Flick</a> | <a routerLink="tags-manage">Manage Tags</a> | <a
+                    routerLink="login" (click)="onLogout()">Logout</a>
+            </nav>
+        </div>
     </div>
-    <hr>
 </div>

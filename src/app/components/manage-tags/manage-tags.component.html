@@ -1,11 +1,20 @@
-<h2>Manage Your Tags:</h2>
-
 <!-- Show this div by default -->
 <div class="container" *ngIf="!isEdit">
+    <h2>Manage Your Tags:</h2>
+
+    <br><br>
     <div *ngFor="let tag of allTags">
-        <span>{{tag.tagName}} </span>
-        <button class="btn btn-sm" (click)="showUpdateTags(tag.tagId)">Edit Tag</button>
-        <button class="btn btn-sm" (click)="deleteTag(tag.tagId)">Delete</button>
+        <div class="container">
+            <div class="row">
+                <div class="col align-right">
+                    <span>{{tag.tagName}} </span>
+                </div>
+                <div class="col align-left">
+                    <button class="btn btn-sm" (click)="showUpdateTags(tag.tagId)"><img src="assets/images/edit.png" alt="Edit"></button>
+                    <button class="btn btn-sm" (click)="deleteTag(tag.tagId)"><img src="assets/images/delete.png" alt="Delete"></button>
+                </div>
+            </div>
+        </div>
         <br>
     </div>
     <br>
@@ -13,10 +22,13 @@
 
 <!-- Show this div when user wants to edit tag names -->
 <div class="container" *ngIf="isEdit">
+    <h2>Edit Your Tag:</h2>
+
+    <br><br>
     <input type="text" class="form-control" id="editTagName" [(ngModel)]="editTag.tagName">
     <br><br>
-    <button class="btn btn-sm" (click)="showAllTags()">Go Back</button>
-    <button class="btn btn-sm" (click)="updateTag(tagId, editTag); showAllTags()">Save Changes</button>
+    <button class="btn btn-lg" (click)="showAllTags()">Go Back</button>
+    <button class="btn btn-lg" (click)="updateTag(tagId, editTag); showAllTags()">Save Changes</button>
 </div>
 
 <br><br>
@@ -25,9 +37,13 @@
 <div class="container" *ngIf="!isEdit">
     <form #createTag="ngForm">
         <div class="form-group">
-            <label for="createTag">Create a new tag:</label>
+            <label class="tag-label" for="createTag">Create a new tag:</label>
+            <br>
             <input name="addTagName" type="text" class="form-control" id="createTag" [(ngModel)]="newTag.tagName">
-            <button class="btn btn-sm" (click)="addTag(); createTag.reset()">Add Tag</button>
+            <br>
+            <button class="btn btn-lg" (click)="addTag(); createTag.reset()">Add Tag</button>
         </div>
     </form>
 </div>
+
+<br><br>

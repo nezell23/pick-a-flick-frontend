@@ -1,16 +1,18 @@
-<h2>Welcome! {{user.firstName}}!</h2>
+<h1>Welcome, {{user.firstName}}!</h1>
 
-<div class="Sentence1">Whether you're planning your next watch party or just need to find a flick that's friendly for the whole family,
-    Pick a Flick is for you!</div>
+<br><br>
+
+<h4 class="sentence1">Whether you're planning your next watch party or just need to find a flick that's friendly for the whole family,
+    Pick a Flick is for you!</h4>
 
 <br><br>
 
 <div *ngIf="recentMovies.length">
-    <p>My Recently Added Flicks:</p>
+    <h2>Recently Added:</h2>
     <div *ngFor="let movie of recentMovies">
         <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
         <br>
-        <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+        <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
         <div>Tags:
             <span *ngFor="let tag of movie.tags; last as isLast"><a
                     [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a><span *ngIf="!isLast">,

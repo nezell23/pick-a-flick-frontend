@@ -26,8 +26,8 @@ export class PickAFlickComponent implements OnInit {
   // var to hold movies matching search tag
   taggedMovies: Movie[] = [];
 
-  // to show div if no results found
-  show: boolean = false;
+  // var to toggle between shown divs
+  showMovies: boolean = true;
 
   constructor(private moviesService: MoviesService, private tagsService: TagsService, private router: Router) { }
 
@@ -70,8 +70,11 @@ export class PickAFlickComponent implements OnInit {
   findFlickByTag() {
     this.moviesService.getMoviesByTag(this.tagId).subscribe(response => {
       this.taggedMovies = response;
-      if (this.taggedMovies.length == 0) {
-        this.show = true;
+      if (this.taggedMovies.length) {
+        this.showMovies = true;
+      }
+      else {
+        this.showMovies = false;
       }
     },
       (error: HttpErrorResponse) => {

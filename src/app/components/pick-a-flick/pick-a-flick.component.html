@@ -1,5 +1,7 @@
 <h2>Pick a Flick!</h2>
 
+<br><br>
+
 <div class="container">
   <div class="search-by-tag">
 <!-- For Tags list: -->
@@ -21,9 +23,10 @@
 <div *ngFor="let movie of taggedMovies">
   <a [routerLink]="['/movies', movie.movieId]"><img src="{{movie.imageUrl}}"></a>
   <br>
-  <a [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
+  <a class="movie-title" [routerLink]="['/movies', movie.movieId]">{{movie.movieTitle}}</a>
   <div>Tags:</div>
   <div *ngFor="let tag of movie.tags"><a [routerLink]="['/movies-search', tag.tagId]">{{tag.tagName}}</a></div>
   <br><br><br>
 </div>
-<div *ngIf="this.show">No Flicks with that Tag!</div>
+
+<div *ngIf="!showMovies">No Flicks with that Tag!</div>

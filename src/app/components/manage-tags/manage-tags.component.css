@@ -1,4 +1,11 @@
 div {
   width: 600px;
   margin: auto;
+  align-items: center;
+}
+.tag-label {
+  font-size: larger;
+}
+.align-left {
+  text-align: left;
 }
