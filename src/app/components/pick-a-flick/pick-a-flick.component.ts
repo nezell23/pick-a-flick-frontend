@@ -70,7 +70,7 @@ export class PickAFlickComponent implements OnInit {
   findFlickByTag() {
     this.moviesService.getMoviesByTag(this.tagId).subscribe(response => {
       this.taggedMovies = response;
-      if (this.taggedMovies.length) {
+      if (this.taggedMovies.length > 0) {
         this.showMovies = true;
       }
       else {
